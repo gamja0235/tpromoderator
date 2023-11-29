@@ -1,4 +1,5 @@
 class Initial {
+    #hashs = '';
     #modeExplain = new Object();
     #loadState = "NOLOAD";
     #modeList = ["manualReview", "dobaeAutoRemove", "blockedWordsSetting", "ALLMODE"];
@@ -9,6 +10,8 @@ class Initial {
         .then((obj) => {
           this.#modeJson(obj);
         })
+        this.#hashs = opener.hashs;
+        opener.close()
     }
     
     #modeJson(obj) {
@@ -16,6 +19,10 @@ class Initial {
         this.#loadState = "DONE"
         this.#modeExplainInit()
         this.#radioInit()
+    }
+    
+    getHashs() {
+        return this.#hashs
     }
     
     getExplainString(mode = "manualReview") {
