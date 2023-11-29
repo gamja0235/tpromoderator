@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang=kr>
+<meta charset=utf-8>
+<head>
+ <title>Twitch Pro Moderator</title>
+ <link rel="stylesheet" href="popupStyle.css">
+</head>
+<body>
+ <div id="popupWrap">
+ <div class="popup" id="window">
+  <div class="popup" id="title">추가할 모드 선택</div>
+  <div class="popup" id="content">
+   <label>
+    <input type="radio" name="modes" class="radios" checked value="manualReview" />
+    <span>수동 검토 모드</span></label>
+   <label>
+    <input type="radio" name="modes" class="radios" value="dobaeAutoRemove" />
+    <span>도배 자동 삭제 모드</span></label>
+   <label>
+    <input type="radio" name="modes" class="radios" value="blockedWordsSetting" />
+    <span>차단어 설정 모드</span></label>
+  </div>
+  <div class="popup" id="title" style="border-radius: 0 0 0 0;">상세 설명</div>
+  <div class="popup" id="content">
+   <label id="modeExplanation"></label>
+  </div>
+  <div class="popup" id="line"></div>
+  <button class="popup" id="select">모드 추가</button>
+  <button class="popup" id="cancel">취소하기</button>
+ </div><!-- POPUP WINDOW --!>
+ </div><!-- POPUP WRAP --!>
+ <div id="wrapper">
+  <div id="ModeLayout">
+   <div class="Mode" id="title">
+    <div class="Mode" id="titleText">모드</div>
+    <button class="Mode" id="addBtn">➕</button>
+    <button class="Mode" id="removeBtn">➖</button>
+   </div><!-- MODE TITLE --!>
+   <div class="Mode" id="list">
+    
+   </div><!-- MODE LIST --!>
+  </div><!-- MODE LAYOUT --!>
+  <div id="ChatNViewerLayout">
+   <div id="ChatWrap">
+    <div class="Chat" id="title">채팅창</div>
+    <div class="Chat" id="list">
+    </div>
+   </div><!-- CHAT WRAP --!>
+   <div id="ViewerWrap">
+    <div class="Viewer" id="title">시청자</div>
+    <div class="Viewer" id="list">
+    </div>
+   </div>
+  </div><!-- Chat N Viewer LAYOUT --!>
+ </div><!-- WRAPPER --!>
+ <div id="SettingLayout">
+  <div id="inline2">
+   <button class="Settings" id="changeAcount">계정전환</button>
+   <button class="Settings" id="logout">로그아웃</button>
+   <button class="Settings" id="setting">설정</button>
+   <button class="Settings" id="else">…</button>
+  </div>
+ </div><!-- SETTING LAYOUT --!>
+ <div id="StatementLayout">
+  <div id="inline1">
+   <div class="Statement"></div>
+  </div>
+ </div><!-- STATEMENT LAYOUT --!>
+ <script src="popup.js"></script>
+</body>
+</html>
