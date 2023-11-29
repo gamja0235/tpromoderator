@@ -112,5 +112,5 @@ let modes = {
     }
 }
 modes.radioInit();
-delete initial;
-init = 'undefined';
+//delete initial;
+//init = 'undefined';
