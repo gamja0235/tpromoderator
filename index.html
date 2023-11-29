@@ -7,7 +7,10 @@
   if (hashs == '') {
       hashs = document.location.href.replace('https://gamja0235.github.io/tpromoderator/', '')
   }
-  document.write('<p>'+hashs+'</p>');
+  function PopupOpen() {
+      let options = "width=750,height=1400,popup=true,menubar=no,toolbar=no,location=no,scrollbars=no,resizable=no,noopener=no,fullscreen=yes"
+      window.open("popup.html", "_blank", options)//"Twitch Pro Moderator"
+  }
  </script>
 </body>
 </html>
