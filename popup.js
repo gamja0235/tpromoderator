@@ -83,3 +83,4 @@ window.onresize = (_=>{
 // 라디오 등등 초기화 클래스-인스턴트
 let init = new Initial();
 
+delete init
