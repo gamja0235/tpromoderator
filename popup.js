@@ -86,31 +86,48 @@ window.onresize = (_=>{
 
 // 라디오 등등 초기화 클래스-인스턴트
 let init = new Initial();
-let modes = {
-    'modeExplain': init.getModeExplain(),
-    '#loadState': init.getLoadState(),
-    'modeList': ["manualReview", "dobaeAutoRemove", "blockedWordsSetting", "ALLMODE"],
-    'radioInit': function() {
-        let radios = document.querySelectorAll('input[name="modes"]');
-        let label = document.querySelector('label[id="modeExplanation"]');
-        radios.forEach((rs)=>{
-            rs.addEventListener("change", (e) => {
-                const current = e.currentTarget;
-                if(current.checked) {
-                    let val = current.value;
-                    if (this.modeList.indexOf(val) > -1) {
-                        label.innerText = this.modeExplain[val].replace(/다\.\s/gu, '다.\n')
-                    } else {
-                        console.log('오류');
-                    }
-                }
-            });
-        });
-        let checked = document.querySelector('input[name="modes"]:checked');
-        checked.removeAttribute('checked');
-        checked.click();
-    }
+
+let modes = 'undefined';
+
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 }
-modes.radioInit();
-//delete initial;
-//init = 'undefined';
+async function WaitForInit() {
+  await delay(100);
+  return "GOOD";
+}
+
+WaitForInit().then((res) => {
+    console.log(res)
+    modes = {
+        'modeExplain': init.getModeExplain(),
+        '#loadState': init.getLoadState(),
+        'modeList': ["manualReview", "dobaeAutoRemove", "blockedWordsSetting", "ALLMODE"],
+        'radioInit': function() {
+            let radios = document.querySelectorAll('input[name="modes"]');
+            let label = document.querySelector('label[id="modeExplanation"]');
+            radios.forEach((rs)=>{
+                rs.addEventListener("change", (e) => {
+                    const current = e.currentTarget;
+                    if(current.checked) {
+                        let val = current.value;
+                        if (this.modeList.indexOf(val) > -1) {
+                            label.innerText = this.modeExplain[val].replace(/다\.\s/gu, '다.\n')
+                        } else {
+                            console.log('오류');
+                        }
+                    }
+                });
+            });
+            let checked = document.querySelector('input[name="modes"]:checked');
+            checked.removeAttribute('checked');
+            checked.click();
+        }
+    }
+    modes.radioInit();
+    //delete initial;
+    //init = 'undefined';
+});
+
