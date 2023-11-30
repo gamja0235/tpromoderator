@@ -95,7 +95,7 @@ function delay(ms) {
   });
 }
 async function WaitForInit() {
-  await delay(1500);
+  await delay(150);
   return "GOOD";
 }
 
