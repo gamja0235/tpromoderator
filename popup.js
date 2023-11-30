@@ -103,7 +103,7 @@ WaitForInit().then((res) => {
     console.log(res)
     modes = {
         'modeExplain': init.getModeExplain(),
-        '#loadState': init.getLoadState(),
+        'loadState': init.getLoadState(),
         'modeList': ["manualReview", "dobaeAutoRemove", "blockedWordsSetting", "ALLMODE"],
         'radioInit': function() {
             let radios = document.querySelectorAll('input[name="modes"]');
@@ -126,7 +126,20 @@ WaitForInit().then((res) => {
             checked.click();
         }
     }
-    modes.radioInit();
+    
+    let checkingFunc = (() => {
+        if (init.getLoadState() == 'DONE') {
+            modes.modeExplain = init.getModeExplain();
+            modes.loadState = init.getLoadState();
+            modes.radioInit();
+            console.log('CHECKING... O');
+            clearTimeout(this);
+            console.log('CHECKING...END');
+        } else {
+            console.log('CHECKING... X');
+        }
+    })
+    setTimeout(checkingFunc, 15);
     //delete initial;
     //init = 'undefined';
 });
