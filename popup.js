@@ -51,27 +51,6 @@ class Initial {
         })
         this.#modeExplain = modeCopy
     }
-    
-    /*#radioInit() {
-        let radios = document.querySelectorAll('input[name="modes"]');
-        let label = document.querySelector('label[id="modeExplanation"]');
-        radios.forEach((rs)=>{
-            rs.addEventListener("change", (e) => {
-                const current = e.currentTarget;
-                if(current.checked) {
-                    let val = current.value;
-                    if (this.#modeList.indexOf(val) > -1) {
-                        label.innerText = this.#modeExplain[val].replace(/다\.\s/gu, '다.\n')
-                    } else {
-                        console.log('오류');
-                    }
-                }
-            });
-        });
-        let checked = document.querySelector('input[name="modes"]:checked');
-        checked.removeAttribute('checked');
-        checked.click();
-    }*/
 }
 
 // 강제 창 크기 조절
@@ -132,6 +111,11 @@ WaitForInit().then((res) => {
             modes.modeExplain = init.getModeExplain();
             modes.loadState = init.getLoadState();
             modes.radioInit();
+            /* --- ( 해쉬값 처리.. ) --- */
+            
+            /* ------------------------ */
+            delete initial;
+            init = 'undefined';
             console.log('CHECKING... O');
             clearTimeout(this);
             console.log('CHECKING...END');
@@ -140,7 +124,5 @@ WaitForInit().then((res) => {
         }
     })
     setTimeout(checkingFunc, 15);
-    //delete initial;
-    //init = 'undefined';
 });
 
